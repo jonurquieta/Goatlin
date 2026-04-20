@@ -1,5 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
+const helmet = require('helmet');
 const path = require('path');
 const logger = require('morgan');
 const database = require('./lib/database');
@@ -9,6 +10,7 @@ const indexRouter = require('./routes/index');
 const accountsRouter = require('./routes/accounts');
 
 const app = express();
+app.use(helmet());
 
 app.use(logger('dev'));
 app.use(express.json());
